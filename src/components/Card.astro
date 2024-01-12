@@ -1,0 +1,45 @@
+---
+// interface Props {
+//   title: string;
+//   body: string;
+//   href: string;
+// }
+// const { href, title, body } = Astro.props;
+
+var allPokemons = [];
+let allPokemon = await fetchAll("https://pokeapi.co/api/v2/pokemon/?limit=25");
+
+console.log(allPokemons);
+
+// const data = await response.json();
+
+// const promises = allPokemons.map((element) =>
+//   getType(element.url, element.name)
+// );
+
+// const resolvedPkmns = await Promise.all(promises);
+
+// allPokemons = resolvedPkmns.flat();
+
+async function fetchAll(url) {
+  if (url != null) {
+    const response = await fetch(url).then((response) => response.json());
+    const data = response;
+
+    await data.results.forEach((element) => {
+      allPokemons.push(element);
+    });
+    // Check if there is a next page and make a recursive call
+    if (data.next) {
+      await fetchAll(data.next);
+    }
+  } else {
+    return;
+  }
+}
+---
+
+<div>
+  {allPokemons.map((item) => <div>{item.name}</div>)}
+</div>
+<style></style>
