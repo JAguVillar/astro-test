@@ -142,7 +142,7 @@ export default {
   },
   async mounted() {
     // Executed after the component is mounted to the DOM
-    const jsonFile = "../../public/json/types.json";
+    const jsonFile = "/json/types.json";
 
     const response = await fetch(jsonFile).then((response) => response.json());
     const data = response;

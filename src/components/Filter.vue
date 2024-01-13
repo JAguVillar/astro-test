@@ -61,7 +61,7 @@ export default {
     },
   },
   async mounted() {
-    const jsonFile = "../../public/json/pokemons.json";
+    const jsonFile = "/json/pokemons.json";
 
     const response = await fetch(jsonFile).then((response) => response.json());
     const data = response;
