@@ -46,9 +46,15 @@ export default {
   beforeMount() {
     // Executed before the component is mounted to the DOM
   },
-  mounted() {
+  async mounted() {
     // Executed after the component is mounted to the DOM
-    this.fetchAll("https://pokeapi.co/api/v2/pokemon/?limit=25");
+    const jsonFile = "../../public/response.json";
+    await this.fetchAll("https://pokeapi.co/api/v2/pokemon/?limit=25");
+
+    const response = await fetch(jsonFile).then((response) => response.json());
+    const data = response;
+
+    console.log(data);
     console.log(this.allPokemons);
   },
 
