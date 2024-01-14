@@ -76,12 +76,7 @@
         </div>
       </li>
       <div class="flex justify-center">
-        <img
-          src="../../public/assets/totodile.gif"
-          alt=""
-          style="width: 50%"
-          class="m-4"
-        />
+        <img src="/assets/totodile.gif" alt="" style="width: 50%" class="m-4" />
       </div>
     </template>
   </dialog>
@@ -108,12 +103,7 @@
       </button>
     </div>
     <div class="flex justify-center">
-      <img
-        src="../../public/assets/pichu.gif"
-        alt=""
-        style="width: 50%"
-        class="m-4"
-      />
+      <img src="/assets/pichu.gif" alt="" style="width: 50%" class="m-4" />
     </div>
   </dialog>
 </template>
