@@ -19,6 +19,7 @@
           :key="pokemon"
           :pokemon="pokemon.name"
           :sprite="pokemon.sprite"
+          :sprite_shiny="pokemon.sprite_shiny"
           :type="pokemon.types"
           :is_shiny="pokemon.is_shiny"
         />
@@ -62,11 +63,15 @@ export default {
   },
   async mounted() {
     const jsonFile = "/json/pokemons.json";
-
     const response = await fetch(jsonFile).then((response) => response.json());
     const data = response;
-
+    data.forEach((element) => {
+      Math.floor(Math.random() * 29) + 1 == 15
+        ? (element.is_shiny = true)
+        : (element.is_shiny = false);
+    });
     this.initialPokemonData = data;
+    console.log(this.initialPokemonData);
   },
   methods: {
     log(value) {

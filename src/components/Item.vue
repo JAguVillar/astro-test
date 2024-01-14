@@ -2,14 +2,29 @@
   <li class="my-4 flex flex-row bg-[#d1d1e9] w-full rounded-xl px-4">
     <div class="flex items-center flex-1 cursor-pointer select-none">
       <div class="flex flex-col items-center relative">
-        <img
-          v-show="is_shiny"
-          style="width: 120px"
-          alt="profil"
-          src="../../public/assets/shiny.gif"
-          class="mx-auto absolute"
-        />
-        <img style="width: 120px" alt="profil" :src="sprite" class="mx-auto" />
+        <template v-if="is_shiny">
+          <img
+            v-show="is_shiny"
+            style="width: 120px"
+            alt="profil"
+            src="../../public/assets/shiny.gif"
+            class="mx-auto absolute"
+          />
+          <img
+            style="width: 120px"
+            alt="profil"
+            :src="sprite_shiny"
+            class="mx-auto"
+          />
+        </template>
+        <template v-else>
+          <img
+            style="width: 120px"
+            alt="profil"
+            :src="sprite"
+            class="mx-auto"
+          />
+        </template>
       </div>
       <div class="flex-1 pl-1">
         <div class="capitalize" style="font-size: 32px">
@@ -38,6 +53,10 @@ export default {
       required: true,
     },
     sprite: {
+      type: String,
+      required: true,
+    },
+    sprite_shiny: {
       type: String,
       required: true,
     },
